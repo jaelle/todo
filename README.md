@@ -1,28 +1,34 @@
-# todo
-A simple web-based todo app in Prolog.
-
+# Todo
 To get started, setup your SWI-Prolog environment.
 
 The following will get you up an running in a Cloud9 enviroment:
 
 From the terminal, run:
+
+```
 sudo apt-get install build-essential autoconf curl chrpath ncurses-dev libreadline-dev libgmp-dev libxext-dev libice-dev libjpeg8-dev libxinerama-dev libxft-dev libxpm-dev libxt-dev pkg-config libssl-dev unixodbc-dev openjdk-7-jdk junit zlib1g-dev libarchive-dev libossp-uuid-dev
 git clone http://github.com/SWI-Prolog/swipl-devel.git ~/swipl
 cd ~/swipl
 ./prepare
+```
 
 When prompted, type "yes".
+
 When promted about documentation, type "3".
 
+```
 ./configure --with-world
 make
 sudo make install
-cd ~/
+cd ~/workspace
+```
 
 Test it. In the terminal, type:
+```
 swipl
-
+```
 From the SWI-Prolog terminal, type:
+```
 check_installation.
-
+```
 This will probably give an warning about library(jpl), but it doesn't matter for this app.
