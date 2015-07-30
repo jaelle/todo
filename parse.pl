@@ -6,64 +6,58 @@ parse_todo(Line,Todo):-
     phrase(todo(Todo),Tokens,[]).
     	
 todo(Todo) -->
-    ['*'],
-    item(Todo),!.
+    [*],
+    item(Todo).
     
 item(completed(Description)) -->
     description(Description),
-    [','],
-    ['done'],!.
+    [,],
+    [done].
     
 item(overdue(Description,Month,Day,Year)) -->
     description(Description),
-    [','],
+    [,],
     past_date(Year,Month,Day).
 
 
 item(upcoming(Description,Month,Day,Year)) -->
     description(Description),
-    [','],
-    future_date(Year,Month,Day),!.
+    [,],
+    future_date(Year,Month,Day).
 
 future_date(Year,Month,Day) -->
     month(Month),
-    ['/'],
+    [/],
     day(Day),
-    ['/'],
+    [/],
     year(Year),
     {
-        m(MonthNum,Month),!,
+        m(M,Month),
         get_time(CurrentTime),
-        date_time_stamp(date(Year,MonthNum,Day),TodoTime),
+        date_time_stamp(date(Year,M,Day),TodoTime),
         
         TodoTime > CurrentTime
     }.
 
 past_date(Year,Month,Day) -->
     month(Month),
-    ['/'],
+    [/],
     day(Day),
     ['/'],
     year(Year),
     {
-        m(MonthNum,Month),!,
+        m(M,Month),
         get_time(CurrentTime),
-        date_time_stamp(date(Year,MonthNum,Day),TodoTime),
+        date_time_stamp(date(Year,M,Day),TodoTime),
         
         TodoTime =< CurrentTime
     }.
 
 month(Month) -->
-    [M],
-    {
-        m(M,Month)
-    }.
+    [M], { m(M,Month) }.
     
 day(Day) -->
-    [Day],
-    {
-        Day < 31
-    }.
+    [Day], { Day < 31 }.
     
 year(Year) -->
     [Year],
