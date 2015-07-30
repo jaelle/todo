@@ -26,11 +26,7 @@ item(upcoming(Description,Month,Day,Year)) -->
     future_date(Year,Month,Day).
 
 future_date(Year,Month,Day) -->
-    month(Month),
-    [/],
-    day(Day),
-    [/],
-    year(Year),
+    date(Year,Month,Day),
     {
         m(M,Month),
         get_time(CurrentTime),
@@ -40,11 +36,7 @@ future_date(Year,Month,Day) -->
     }.
 
 past_date(Year,Month,Day) -->
-    month(Month),
-    [/],
-    day(Day),
-    ['/'],
-    year(Year),
+    date(Year,Month,Day),
     {
         m(M,Month),
         get_time(CurrentTime),
@@ -52,17 +44,28 @@ past_date(Year,Month,Day) -->
         
         TodoTime =< CurrentTime
     }.
+    
+date(Year,Month,Day) -->
+    month(Month),
+    [/],
+    day(Day),
+    [/],
+    year(Year).
 
 month(Month) -->
     [M], { m(M,Month) }.
     
 day(Day) -->
-    [Day], { Day < 31 }.
+    [Day], 
+    { 
+        Day > 0,
+        Day < 31 
+    }.
     
 year(Year) -->
     [Year],
     {
-        Year >= 1900,
+        Year >= 2000,
         Year < 2100
     }.
     
