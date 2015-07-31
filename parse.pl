@@ -9,18 +9,17 @@ todo(Todo) -->
     [*],
     item(Todo).
     
-item(completed(Description)) -->
+item(todo(completed,Description,_)) -->
     description(Description),
     [,],
     [done].
     
-item(overdue(Description,Month,Day,Year)) -->
+item(todo(overdue,Description,date(Year,Month,Day))) -->
     description(Description),
     [,],
     past_date(Year,Month,Day).
 
-
-item(upcoming(Description,Month,Day,Year)) -->
+item(todo(upcoming,Description,date(Year,Month,Day))) -->
     description(Description),
     [,],
     future_date(Year,Month,Day).
@@ -59,7 +58,7 @@ day(Day) -->
     [Day], 
     { 
         Day > 0,
-        Day < 31 
+        Day =< 31 
     }.
     
 year(Year) -->

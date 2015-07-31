@@ -1,0 +1,46 @@
+body
+{
+    background:#FFF;
+    font-size:1.25em;
+    font-family:Georgia, serif;
+}
+.container
+{
+    margin:auto;
+    width:40%;
+}
+.header
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:1.75em;
+    text-align:center;
+}
+.footer
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:0.5em;
+    text-align:center;
+}
+ul
+{
+    list-style:none;
+}
+ul li 
+{
+    border-top:1px dashed #CCC;
+    text-align:center;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+ul li:last-child 
+{
+    border-bottom:1px dashed #CCC;
+}
+ul .completed
+{
+    text-decoration:line-through;
+}
+ul .overdue
+{
+    color:#F00;
+}

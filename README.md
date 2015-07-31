@@ -14,7 +14,7 @@ cd ~/swipl
 
 When prompted, type "yes".
 
-When promted about documentation, type "3".
+When prompted about documentation, type "3".
 
 ```
 ./configure --with-world
