@@ -33,7 +33,7 @@ check_installation.
 ```
 This will probably give an warning about library(jpl), but it doesn't matter for this app.
 
-# Start the server.
+# Get Started
 
 From the SWI-Prolog terminal, type the following. You can replace 8080 with whichever port you wish to use.
 
