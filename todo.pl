@@ -11,4 +11,4 @@ pwp_date(Year,Month,Day,Date):-
         _,
         fail).
 
-pwp_date(_,_,_,""):-!.
+pwp_date(_,_,_,"").

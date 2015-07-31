@@ -19,7 +19,7 @@
 	</div>
 	<div class="footer">
 		<img src="images/swiprolog.jpg" width="25"/><br />
-		Powered by <a href="http://swiprolog.org">SWI-Prolog</a>
+		Powered by <a href="http://swi-prolog.org">SWI-Prolog</a>
 	</div>
 </body>
 </html>
