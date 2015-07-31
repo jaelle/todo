@@ -1,4 +1,4 @@
-# Todo
+# Getting Started
 To get started, setup your SWI-Prolog environment.
 
 The following will get you up an running in a Cloud9 enviroment:
@@ -33,7 +33,7 @@ check_installation.
 ```
 This will probably give an warning about library(jpl), but it doesn't matter for this app.
 
-# Get Started
+# Start the server.
 
 From the SWI-Prolog terminal, type the following. You can replace 8080 with whichever port you wish to use.
 
