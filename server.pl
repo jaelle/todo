@@ -10,13 +10,10 @@ user:file_search_path(root,'.').
 
 :- http_handler(/, default_handler, []).
 
-% predicate to start the server
 server(Port):-
 
-	% start server on specified port
 	http_server(http_dispatch, [port(Port)]).
 
-% Used by http_handler to determine what to do when handling the HTTP request
 default_handler(Request):-
 
 	% display index.pwp
