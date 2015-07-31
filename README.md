@@ -42,4 +42,4 @@ From the SWI-Prolog terminal, type the following. You can replace 8080 with whic
 server(8080).
 ```
 
-If you're in a Cloud9 environment, move ~/workspace/runners/Prolog.run to .c9/runners/Prolog.run to use the Run button.
+If you're in a Cloud9 environment, you can move ~/workspace/runners/Prolog.run to .c9/runners/Prolog.run to use the Run button.
