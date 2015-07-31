@@ -32,3 +32,14 @@ From the SWI-Prolog terminal, type:
 check_installation.
 ```
 This will probably give an warning about library(jpl), but it doesn't matter for this app.
+
+# Start the server.
+
+From the SWI-Prolog terminal, type the following. You can replace 8080 with whichever port you wish to use.
+
+``` 
+[server].
+server(8080).
+```
+
+If you're in a Cloud9 environment, move runners/Prolog.run to .c9/runners/Prolog.run if you want to use the Run button.
