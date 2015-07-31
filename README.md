@@ -33,9 +33,9 @@ check_installation.
 ```
 This will probably give an warning about library(jpl), but it doesn't matter for this app.
 
-# Start the server.
+# Start the server
 
-From the SWI-Prolog terminal, type the following. You can replace 8080 with whichever port you wish to use.
+Once you have checked out the todo app, you're ready to go. From the SWI-Prolog terminal, type the following. You can replace 8080 with whichever port you wish to use.
 
 ``` 
 [server].
