@@ -1,7 +1,7 @@
 # Getting Started
 To get started, setup your SWI-Prolog environment.
 
-The following will get you up an running in a Cloud9 enviroment:
+The following will get you up an running in a Cloud9 enviroment (http://c9.io):
 
 From the terminal, run:
 
