@@ -1,7 +1,7 @@
 # Getting Started
 To get started, setup your SWI-Prolog environment.
 
-The following will get you up an running in a Cloud9 enviroment (http://c9.io):
+The following will get you up and running in a Cloud9 enviroment (http://c9.io):
 
 From the terminal, run:
 
@@ -41,5 +41,7 @@ Once you have checked out the todo app, you're ready to go. From the SWI-Prolog 
 [server].
 server(8080).
 ```
+
+On Cloud9, you can access this todo app by choosing Preview->Running Application.
 
 If you're in a Cloud9 environment, you can move ~/workspace/runners/Prolog.run to .c9/runners/Prolog.run to use the Run button.
