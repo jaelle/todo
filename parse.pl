@@ -43,7 +43,8 @@ past_date(Year,Month,Day) -->
         
         TodoTime =< CurrentTime
     }.
-    
+
+% 8/4/2015
 date(Year,Month,Day) -->
     month(Month),
     [/],
@@ -51,12 +52,27 @@ date(Year,Month,Day) -->
     [/],
     year(Year).
 
+% add some other rules for representing a date
+% Try: August 4, 2015
+date(Year,Month,Day) -->
+    month(Month),
+    day(Day),
+    [,],
+    year(Year).
+
+% numeric representation (1-12)
 month(Month) -->
     [M], { m(M,Month) }.
+
+% add some other rules for representing a month  
+% try: text representation (ex: August)
+month(Month) -->
+    [Month], { m(_,Month) }.
     
 day(Day) -->
     [Day], 
     { 
+        integer(Day),
         Day > 0,
         Day =< 31 
     }.
@@ -64,6 +80,7 @@ day(Day) -->
 year(Year) -->
     [Year],
     {
+        integer(Year),
         Year >= 2000,
         Year < 2100
     }.
