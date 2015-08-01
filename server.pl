@@ -1,6 +1,7 @@
 :-use_module(library(http/thread_httpd)).
 :-use_module(library(http/http_dispatch)).
 :-use_module(library(http/http_pwp)).
+:-ensure_loaded(debug).
 
 user:file_search_path(root,'.').
 
@@ -17,7 +18,7 @@ server(Port):-
 default_handler(Request):-
 
 	% display index.pwp
-	reply_pwp_page('pwp/index.pwp',[],Request).
+	??reply_pwp_page('pwp/index.pwp',[],Request).
 	
 assets_handler(Request):-
 

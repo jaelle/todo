@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html pwp:ask="ensure_loaded(todo),
-               read_todos_from_file('todos.txt',Todos)">
+               ??read_todos_from_file('todos.txt',Todos)">
 <head>
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="css/style.css">
@@ -17,7 +17,7 @@
 			2. Add some text to denote overdue items
 			3. Change the way the date is displayed (See: pwp_date/4 in todo.pl)
 			//-->
-			<li pwp:ask="member(todo(Type,Description,date(Y,M,D)),Todos)">
+			<li pwp:ask="??member(todo(Type,Description,date(Y,M,D)),Todos)">
 				<span pwp:use="Description" />
 				<i pwp:ask="pwp_date(Y,M,D,Date)" pwp:use="Date" /></li>
 		</ul>
