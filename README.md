@@ -12,7 +12,7 @@ cd ~/swipl
 ./prepare
 ```
 
-When prompted, type "yes".
+When prompted about git submodule --init, type "yes".
 
 When prompted about documentation, type "3".
 
