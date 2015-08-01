@@ -7,43 +7,29 @@ parse_todo(Line,Todo):-
     	
 todo(Todo) -->
     [*],
-    item(Todo).
+    item(Todo),!.
     
 item(todo(completed,Description,_)) -->
     description(Description),
     [,],
     [done].
     
-item(todo(overdue,Description,date(Year,Month,Day))) -->
+item(todo(upcoming,Description,date(Y,M,D))) -->
     description(Description),
     [,],
-    past_date(Year,Month,Day).
+    date(Y,M,D).
 
-item(todo(upcoming,Description,date(Year,Month,Day))) -->
-    description(Description),
-    [,],
-    future_date(Year,Month,Day).
+% TODO: create a rule that identifies overdue items
 
-future_date(Year,Month,Day) -->
-    date(Year,Month,Day),
-    {
-        m(M,Month),
-        get_time(CurrentTime),
-        date_time_stamp(date(Year,M,Day),TodoTime),
-        
-        TodoTime > CurrentTime
-    }.
+% TODO: create a rule that identifies upcoming due dates
 
-past_date(Year,Month,Day) -->
-    date(Year,Month,Day),
-    {
-        m(M,Month),
-        get_time(CurrentTime),
-        date_time_stamp(date(Year,M,Day),TodoTime),
-        
-        TodoTime =< CurrentTime
-    }.
-    
+% TODO: create an rule for items without dates
+
+% TODO: create a rule that identifies future dates
+
+% TODO: create a rule that identifies past dates
+
+% Example date: 8/4/2015
 date(Year,Month,Day) -->
     month(Month),
     [/],
@@ -51,12 +37,20 @@ date(Year,Month,Day) -->
     [/],
     year(Year).
 
+% TODO: add some other rules for representing a date
+% Try: August 4, 2015
+
+% numeric representation of a month(1-12)
 month(Month) -->
     [M], { m(M,Month) }.
+
+% TODO: add another rule for representing a month  
+% try: text representation (ex: August)
     
 day(Day) -->
     [Day], 
     { 
+        integer(Day),
         Day > 0,
         Day =< 31 
     }.
@@ -64,6 +58,7 @@ day(Day) -->
 year(Year) -->
     [Year],
     {
+        integer(Year),
         Year >= 2000,
         Year < 2100
     }.
@@ -74,8 +69,20 @@ description(Description) -->
         atomics_to_string(AtomList," ",Description)
     }.
     
+line(Line) -->
+    whole_line(AtomList),
+    {
+        atomics_to_string(AtomList," ",Line)
+    }.
+
 atom_list([]) --> [].
 
 atom_list([Atom|AtomList]) --> 
     [Atom],!,
     atom_list(AtomList).
+
+whole_line([Atom|AtomList]) -->
+    [Atom],!,
+    whole_line(AtomList).
+
+whole_line([]) --> [].

@@ -11,8 +11,13 @@
 	<div class="container">
 		<h1 class="header">My Todo List</h1>
 		<ul>
-			<li pwp:ask="member(todo(Type,Description,date(Y,M,D)),Todos)" pwp:att="$" class="$(Type)$">
-				<span pwp:ask="Type=overdue">(Overdue)</span>
+			<!-- 
+			Other things to try:
+			1. Add a class attribute that is set to the type of todo
+			2. Add some text to denote overdue items
+			3. Change the way the date is displayed (See: pwp_date/4 in todo.pl)
+			//-->
+			<li pwp:ask="member(todo(Type,Description,date(Y,M,D)),Todos)">
 				<span pwp:use="Description" />
 				<i pwp:ask="pwp_date(Y,M,D,Date)" pwp:use="Date" /></li>
 		</ul>
