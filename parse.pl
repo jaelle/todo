@@ -7,7 +7,7 @@ parse_todo(Line,Todo):-
     	
 todo(Todo) -->
     [*],
-    item(Todo).
+    item(Todo),!.
     
 item(todo(completed,Description,_)) -->
     description(Description),
@@ -24,6 +24,12 @@ item(todo(upcoming,Description,date(Year,Month,Day))) -->
     [,],
     future_date(Year,Month,Day).
 
+
+% TODO: create an rule for items without dates
+item(todo(someday,Description)) -->
+    ??line(Description).
+
+% TODO: create a rule that identifies future dates
 future_date(Year,Month,Day) -->
     date(Year,Month,Day),
     {
@@ -34,6 +40,7 @@ future_date(Year,Month,Day) -->
         TodoTime > CurrentTime
     }.
 
+% TODO: create a rule that identifies past dates
 past_date(Year,Month,Day) -->
     date(Year,Month,Day),
     {
@@ -91,8 +98,20 @@ description(Description) -->
         atomics_to_string(AtomList," ",Description)
     }.
     
+line(Line) -->
+    whole_line(AtomList),
+    {
+        atomics_to_string(AtomList," ",Line)
+    }.
+
 atom_list([]) --> [].
 
 atom_list([Atom|AtomList]) --> 
     [Atom],!,
     atom_list(AtomList).
+
+whole_line([Atom|AtomList]) -->
+    [Atom],!,
+    whole_line(AtomList).
+
+whole_line([]) --> [].
